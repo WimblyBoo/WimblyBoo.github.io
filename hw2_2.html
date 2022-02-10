@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="2nd Homework Assignment">
+<title>Homework 2.2 - Data Processing</title>
+<link rel="stylesheet" href="stylesheet1.css">
+<script type="text/javascript">
+  function dataProcessing() {
+    var entry1 = window.prompt( "What is your first data entry?", );
+    var number1 = parseFloat(entry1, 10);
+    var check1 = Number.isFinite(number1);
+    if (check1 === false) {
+      alert('Hey, that is not a number! Are you trying to break my code?');
+      return;
+    }
+    var entry2 = window.prompt( "What is your second data entry?", );
+    var number2 = parseFloat(entry2, 10);
+    var check2 = Number.isFinite(number2);
+    if (check2 === false) {
+      alert('Hey, that is not a number! Are you trying to break my code?');
+      return;
+    }
+    var entry3 = window.prompt( "What is your third data entry?", );
+    var number3 = parseFloat(entry3, 10);
+    var check3 = Number.isFinite(number3);
+    if (check3 === false) {
+      alert('Hey, that is not a number! Are you trying to break my code?');
+      return;
+    }
+    document.getElementById("n1").innerHTML = number1;
+    document.getElementById("n2").innerHTML = number2;
+    document.getElementById("n3").innerHTML = number3;
+
+    var data = [number1, number2, number3];
+    var totalSum = 0;
+    for(var i in data) {
+      totalSum += data[i];
+    }
+    document.getElementById("s").innerHTML = totalSum;
+    var numsCnt = data.length;
+    var average = totalSum / numsCnt;
+    document.getElementById("m").innerHTML = average;
+    data.sort(function(a,b) { return a - b;});
+    var median = data[1];
+    document.getElementById("med").innerHTML = median;
+  }
+</script>
+</head>
+<body>
+
+<header>
+  <a href="hw1.html">Home</a>
+  <br>
+  <a href="hw2.html">Back to HW 2</a>
+  <h1>Data Processing!</h1>
+</header>
+
+<section>
+  <button type="button" name="button" onclick="dataProcessing()">Enter your data!</button>
+</section>
+
+<footer>
+  <table>
+  <tr>
+    <th>Data Type</th>
+    <th>   Data List</th>
+  </tr>
+  <tr>
+    <td>Number 1</td>
+    <td id='n1'></td>
+  </tr>
+  <tr>
+    <td>Number 2</td>
+    <td id='n2'></td>
+  </tr>
+  <tr>
+    <td>Number 3</td>
+    <td id='n3'></td>
+  </tr>
+  <tr>
+    <td>Sum</td>
+    <td id='s'></td>
+  </tr>
+  <tr>
+    <td>Median</td>
+    <td id='med'></td>
+  </tr>
+  <tr>
+    <td>Mean</td>
+    <td id='m'></td>
+  </tr>
+
+</table>
+</footer>
+
+</body>
+
+</html>
