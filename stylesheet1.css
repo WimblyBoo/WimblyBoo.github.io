@@ -1,0 +1,78 @@
+body {
+  background-color: black;
+}
+
+h1 {
+  font-family: "Andale Mono", monospace;
+  font-size: "35px";
+  color: green;
+  text-align: center;
+}
+
+textarea {
+  font-family: "Andale Mono", monospace;
+  font-size: "35px";
+  color: green;
+}
+
+label {
+  font-family: "Andale Mono", monospace;
+  font-size: "35px";
+  color: green;
+}
+
+
+th {
+  font-family: "Andale Mono", monospace;
+  font-size: "35px";
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  font-family: "Andale Mono", monospace;
+  font-size: "35px";
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+
+p {
+  font-family: "Andale Mono", monospace;
+  font-size: "20px";
+  color: green;
+  font-weight: bold;
+}
+
+/* unvisited link */
+a:link {
+  font-family: "Andale Mono", monospace;
+  line-height: 1.5;
+  color: green;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  font-family: "Andale Mono", monospace;
+  line-height: 1.5;
+  color: green;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  font-family: "Andale Mono", monospace;
+  line-height: 1.5;
+  color: white;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  font-family: "Andale Mono", monospace;
+  line-height: 1.5;
+  color: white;
+  text-decoration: none;
+}
