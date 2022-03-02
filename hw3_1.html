@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="3rd Homework Assignment">
+<title>Homework 3.1 - Grade Processing</title>
+<link rel="stylesheet" href="stylesheet1.css">
+<script type="text/javascript">
+  function dataProcessing() {
+    document.getElementById("retake").innerHTML = "";
+    document.getElementById("error1").innerHTML = "";
+    document.getElementById("error2").innerHTML = "";
+    document.getElementById("error3").innerHTML = "";
+    document.getElementById("error4").innerHTML = "";
+    var entry1 = document.forms["myform"].elements["num1"].value;
+    var number1 = parseFloat(entry1, 10);
+    var check1 = Number.isFinite(number1);
+    if (check1 === false) {
+      document.getElementById("error1").innerHTML = "INVALID INPUT";
+      return;
+    } else if (number1 < 0.0 || number1 > 100.0) {
+      document.getElementById("error1").innerHTML = "INVALID INPUT";
+      return;
+    }
+    var entry2 = document.forms["myform"].elements["num2"].value;
+    var number2 = parseFloat(entry2, 10);
+    var check2 = Number.isFinite(number2);
+    if (check2 === false) {
+      document.getElementById("error2").innerHTML = "INVALID INPUT";
+      return;
+    } else if (number2 < 0.0 || number2 > 100.0) {
+      document.getElementById("error2").innerHTML = "INVALID INPUT";
+      return;
+    }
+    var entry3 = document.forms["myform"].elements["num3"].value;
+    var number3 = parseFloat(entry3, 10);
+    var check3 = Number.isFinite(number3);
+    if (check3 === false) {
+      document.getElementById("error3").innerHTML = "INVALID INPUT";
+      return;
+    } else if (number3 < 0.0 || number3 > 100.0) {
+      document.getElementById("error3").innerHTML = "INVALID INPUT";
+      return;
+    }
+    var entry4 = document.forms["myform"].elements["num4"].value;
+    var number4 = parseFloat(entry4, 10);
+    var check4 = Number.isFinite(number4);
+    if (check4 === false) {
+      document.getElementById("error4").innerHTML = "INVALID INPUT";
+      return;
+    } else if (number4 < 0.0 || number4 > 100.0) {
+      document.getElementById("error4").innerHTML = "INVALID INPUT";
+      return;
+    }
+
+
+    var finalGrade = (.5 * number1) + (.2 * number2) + (.2 * number3) + (.1 * number4)
+    document.getElementById("fgp").innerHTML = finalGrade;
+
+    if (finalGrade >= 90) {
+        document.getElementById("lgrade").innerHTML = "A";
+    } else if (finalGrade >= 80) {
+        document.getElementById("lgrade").innerHTML = "B";
+    } else if (finalGrade >= 70) {
+        document.getElementById("lgrade").innerHTML = "C";
+    } else if (finalGrade >= 60) {
+        document.getElementById("lgrade").innerHTML = "D";
+        document.getElementById("retake").innerHTML = "STUDENT MUST RETAKE THE COURSE"
+    } else {
+        document.getElementById("lgrade").innerHTML = "F";
+        document.getElementById("retake").innerHTML = "STUDENT MUST RETAKE THE COURSE"
+    }
+
+  }
+</script>
+</head>
+<body>
+
+<header>
+  <a href="hw1.html">Home</a>
+  <br>
+  <a href="hw3.html">Back to HW 3</a>
+  <h1>Grade Processing!</h1>
+</header>
+
+<footer>
+  <table>
+  <tr>
+    <th>Data Type</th>
+    <th>Data List</th>
+  </tr>
+  <tr>
+    <td>Final Average</td>
+    <td id='fgp'></td>
+  </tr>
+  <tr>
+    <td>Letter Grade</td>
+    <td id='lgrade'></td>
+  </tr>
+
+</table>
+<form name="myform">
+  <table>
+      <tr>
+        <td><label for="num1">HW Average</label>:</td>
+        <td><input type="text" name="num1" id="num1" size="10"></td>
+        <td><p id="error1" style="color:red;"></p></td>
+      </tr>
+      <tr>
+        <td><label for="num2">Midterm Exam</label>:</td>
+        <td><input type="text" name="num2" id="num2" size="10"></td>
+        <td><p id="error2" style="color:red;"></p></td>
+      </tr>
+      <tr>
+        <td><label for="num3">Final Exam</label>:</td>
+        <td><input type="text" name="num3" id="num3" size="10"></td>
+        <td><p id="error3" style="color:red;"></p></td>
+      </tr>
+      <tr>
+        <td><label for="num4">Participation</label>:</td>
+        <td><input type="text" name="num4" id="num4" size="10"></td>
+        <td><p id="error4" style="color:red;"></p></td>
+      </tr>
+  </table>
+  <br>
+  <input type="button" onclick="dataProcessing()" value="SUBMIT">
+  <input type="reset" value="RESET">
+</form>
+<br><br>
+<p style="color:red;font-size:25px;" id="retake"></p>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="3rd Homework Assignment">
+<title>Homework 3.2</title>
+<link rel="stylesheet" href="stylesheet1.css">
+<script type="text/javascript">
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2")  + "e-2");
+}
+function dataProcessing() {
+  document.getElementById("error1").innerHTML = "";
+  document.getElementById("error2").innerHTML = "";
+  document.getElementById("error3").innerHTML = "";
+  document.getElementById("error4").innerHTML = "";
+  var entry1 = document.forms["sales"].elements["item1"].value;
+  var number1 = parseFloat(entry1, 10);
+  var check1 = Number.isFinite(number1);
+  if (check1 === false) {
+    document.getElementById("error1").innerHTML = "INVALID INPUT";
+    return;
+  } else if (number1 < 0.0) {
+    document.getElementById("error1").innerHTML = "INVALID INPUT";
+    return;
+  }
+  var entry2 = document.forms["sales"].elements["item2"].value;
+  var number2 = parseFloat(entry2, 10);
+  var check2 = Number.isFinite(number2);
+  if (check2 === false) {
+    document.getElementById("error2").innerHTML = "INVALID INPUT";
+    return;
+  } else if (number2 < 0.0) {
+    document.getElementById("error2").innerHTML = "INVALID INPUT";
+    return;
+  }
+  var entry3 = document.forms["sales"].elements["item3"].value;
+  var number3 = parseFloat(entry3, 10);
+  var check3 = Number.isFinite(number3);
+  if (check3 === false) {
+    document.getElementById("error3").innerHTML = "INVALID INPUT";
+    return;
+  } else if (number3 < 0.0) {
+    document.getElementById("error3").innerHTML = "INVALID INPUT";
+    return;
+  }
+  var entry4 = document.forms["sales"].elements["item4"].value;
+  var number4 = parseFloat(entry4, 10);
+  var check4 = Number.isFinite(number4);
+  if (check4 === false) {
+    document.getElementById("error4").innerHTML = "INVALID INPUT";
+    return;
+  } else if (number4 < 0.0) {
+    document.getElementById("error4").innerHTML = "INVALID INPUT";
+    return;
+  }
+
+
+
+
+  document.getElementById("item1sold").value = number1;
+  document.getElementById("item2sold").value = number2;
+  document.getElementById("item3sold").value = number3;
+  document.getElementById("item4sold").value = number4;
+
+  var item1n = number1 * 20.99;
+  var item2n = number2 * 12.75;
+  var item3n = number3 * 9.95;
+  var item4n = number4 * 35.89;
+
+  var item1p = item1n.toFixed(2);
+  var item2p = item2n.toFixed(2);
+  var item3p = item3n.toFixed(2);
+  var item4p = item4n.toFixed(2);
+
+  document.getElementById("item1prof").value = item1p;
+  document.getElementById("item2prof").value = item2p;
+  document.getElementById("item3prof").value = item3p;
+  document.getElementById("item4prof").value = item4p;
+
+  var totmount = item1n + item2n + item3n + item4n;
+  document.getElementById("tas").value = totmount.toFixed(2);
+
+  var percents = totmount * 0.09;
+  var totweek = percents + 250;
+  document.getElementById("twe").value = totweek.toFixed(2);
+}
+</script>
+</head>
+<body>
+
+<header>
+  <a href="hw1.html">Home</a>
+  <br>
+  <a href="hw3.html">Back to HW 3</a>
+  <h1>Profit Calculation!</h1>
+</header>
+
+<section>
+</section>
+
+<footer>
+  <form name="name">
+    <td><label for="name">SALESPERSON</label>:</td>
+    <td><input type="text" name="name" id="name" size="15"></td>
+  </form>
+  <p style="font-size:20px">INPUT SALES:</p>
+  <form name="sales">
+    <table>
+        <tr>
+          <td><label for="item1">Item 1</label>:</td>
+          <td><input type="text" name="item1" id="item1" size="10"></td>
+          <td><p id="error1" style="color:red;"></p></td>
+        </tr>
+        <tr>
+          <td><label for="item2">Item 2</label>:</td>
+          <td><input type="text" name="item2" id="item2" size="10"></td>
+          <td><p id="error2" style="color:red;"></p></td>
+        </tr>
+        <tr>
+          <td><label for="item3">Item 3</label>:</td>
+          <td><input type="text" name="item3" id="item3" size="10"></td>
+          <td><p id="error3" style="color:red;"></p></td>
+        </tr>
+        <tr>
+          <td><label for="item4">Item 4</label>:</td>
+          <td><input type="text" name="item4" id="item4" size="10"></td>
+          <td><p id="error4" style="color:red;"></p></td>
+        </tr>
+    </table>
+    <br>
+    <input type="button" onclick="dataProcessing()" value="SUBMIT">
+    <input type="reset" value="RESET">
+  </form>
+  <br>
+  <br>
+  <table>
+    <tr>
+      <td>Item #</td>
+      <td>Price</td>
+      <td>Number Sold</td>
+      <td>Total</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>$20.99</td>
+      <td><input type="text" name="item1sold" id="item1sold" readonly></td>
+      <td><input type="text" name="item1prof" id="item1prof" readonly></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>$12.75</td>
+      <td><input type="text" name="item2sold" id="item2sold" readonly></td>
+      <td><input type="text" name="item2prof" id="item2prof" readonly></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>$9.95</td>
+      <td><input type="text" name="item3sold" id="item3sold" readonly></td>
+      <td><input type="text" name="item3prof" id="item3prof" readonly></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>$35.89</td>
+      <td><input type="text" name="item4sold" id="item4sold" readonly></td>
+      <td><input type="text" name="item4prof" id="item4prof" readonly></td>
+    </tr>
+<tr>
+  <td style="color:black;">.</td>
+</tr>
+<tr>
+  <td style="color:black;">.</td>
+</tr>
+    <tr>
+      <td>Total Amount Sold</td>
+      <td><input type="text" name="tas" id="tas" readonly></td>
+    </tr>
+    <tr>
+      <td>Total Weekly Earnings</td>
+      <td><input type="text" name="twe" id="twe" readonly></td>
+    </tr>
+  </table>
+</footer>
+
+</body>
+
+</html>
