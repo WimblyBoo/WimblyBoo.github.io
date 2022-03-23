@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="4th Homework Assignment">
+<title>Homework 4</title>
+<link rel="stylesheet" href="stylesheet1.css">
+
+</head>
+<body>
+
+<header>
+  <a href="hw1.html">Home</a>
+  <br>
+  <a href="hw4.html">Back to HW 4</a>
+  <h1>Increment Processing!</h1>
+</header>
+
+
+<footer>
+  <h3>Every 4th from 5 - 25 Added</h3>
+  <p id="owe"></p>
+  <br>
+  <h3>Every 4th from 5 - 25 Multiplied</h3>
+  <p id="qwe"></p>
+  <br>
+  <h3>Every 3rd from 3 - 18 Added</h3>
+  <p id="ewe"></p>
+  <br>
+  <h3>Every 3rd from 3 - 18 Multiplied</h3>
+  <p id="kwe"></p>
+  <script type="text/javascript">
+    for(let o = 0, i = 5; i <= 25; i = i + 4) {
+      o = o + i
+      if (i == 25) {
+        let owe = o.toLocaleString();
+        document.getElementById('owe').innerHTML = owe;
+      }
+    }
+    for(let q = 5, w = 5; w <= 25; w = w + 4, q = q * w) {
+      if (w == 25) {
+        let qwe = q.toLocaleString();
+        document.getElementById('qwe').innerHTML = qwe;
+      }
+    }
+
+
+    let e = 3
+    let r = 3
+    while (r <= 18) {
+      r = r + 3;
+      e = e + r;
+      if (r == 18) {
+        let ewe = e.toLocaleString();
+        document.getElementById('ewe').innerHTML = ewe;
+      }
+    }
+
+    let k = 3;
+    let l = 3;
+    while (l <= 18) {
+      l = l + 3;
+      k = k * l;
+      if (l == 18) {
+        let kwe = k.toLocaleString();
+        document.getElementById('kwe').innerHTML = kwe;
+      }
+    }
+  </script>
+</footer>
+
+</body>
+
+</html>

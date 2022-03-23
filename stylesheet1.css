@@ -21,6 +21,10 @@ label {
   color: green;
 }
 
+h3 {
+  font-family: "Andale Mono", monospace;
+  color: green;
+}
 
 th {
   font-family: "Andale Mono", monospace;
