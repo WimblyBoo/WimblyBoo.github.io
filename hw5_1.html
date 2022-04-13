@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="5th Homework Assignment">
+<title>Homework 5.1 - Form Tests</title>
+<link rel="stylesheet" href="stylesheet1.css">
+<link rel="stylesheet" href="formtest.css">
+<script>
+    function clearError() {
+        document.getElementById("nameerror").innerHTML = "";
+        document.getElementById("catdogerror").innerHTML = "";
+        document.getElementById("rodenterror").innerHTML = "";
+    }
+
+
+    function validate() {
+        clearError();
+        document.getElementById("complete").innerHTML = ""
+        var name = document.forms["form1"].elements["name"].value;
+        var catdog = document.forms["form1"].elements["catdog"].value;
+        var hamster = document.forms["form1"].elements["rodent"][0].checked;
+        var guinea = document.forms["form1"].elements["rodent"][1].checked;
+        var chinchilla = document.forms["form1"].elements["rodent"][2].checked;
+        var birds = document.forms["form1"].elements["birds"].value;
+        var error = false;
+        if (name=="") {
+            document.getElementById("nameerror").innerHTML = "INVALID INPUT";
+            error = true;
+        } 
+
+        if (catdog=="") {
+            document.getElementById("catdogerror").innerHTML = "INVALID INPUT";
+            error = true;
+        }
+
+        if (hamster==false&&guinea==false&&chinchilla==false) {
+            document.getElementById("rodenterror").innerHTML = "INVALID INPUT";
+            error = true;
+        }
+        
+        if (error==false) {
+            document.getElementById("complete").innerHTML = "Form Submitted"
+        }
+
+    }
+</script>
+</head>
+<body>
+
+<header>
+    <a href="hw1.html">Home</a>
+    <br>
+    <a href="hw5.html">Back to HW 5</a>
+    <h1>Form Tests!</h1>
+</header>
+
+<footer>
+    <p>This assignment calls for 3 different data entry types to be displayed on one page.</p>
+    <br><br>
+    <form name='form1'>
+        <p>Input Name:</p>
+        <input type="text" name="name" id="name">
+        <p id="nameerror" class="error"></p>
+        <p>Are you a cat or dog person?</p>
+        <input type="radio" value='dog' name="catdog" id="dog">
+        <label for="dog">Dog</label>
+        <p></p>
+        <input type="radio" value='cat' name="catdog" id="cat">
+        <label for="cat">Cat</label>
+        <p id="catdogerror" class="error"></p>
+        <p>What domesticated rodents do you like? Check all the apply:</p>
+        <input type="checkbox" value="hamster" name="rodent" id="hamster">
+        <label for="hamster">Hamster</label>
+        <p></p>
+        <input type="checkbox" value="guinea" name="rodent" id="guinea">
+        <label for="guinea">Guinea Pig</label>
+        <p></p>
+        <input type="checkbox" value="chinchilla" name="rodent" id="chinchilla">
+        <label for="chinchilla">Chinchilla</label>
+        <p id="rodenterror" class="error"></p>
+        <p>Please select your favorite bird from the list below:</p>
+        <select name="birds" id="birds">
+            <option value="chicken">Chicken</option>
+            <option value="duck">Duck</option>
+            <option value="goose">Goose</option>
+        </select>
+        <p></p>
+        <input type="button" value="validate" onclick="validate()">
+    </form>
+    <h2 id="complete"></h2>
+</footer>
+
+
+
+
+</body>
+
+</html>

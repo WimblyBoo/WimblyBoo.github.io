@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="5th Homework Assignment">
+<title>Homework 5.2 - Dropdown Tests</title>
+<link rel="stylesheet" href="stylesheet1.css">
+
+</head>
+<body>
+
+<header>
+    <a href="hw1.html">Home</a>
+    <br>
+    <a href="hw5.html">Back to HW 5</a>
+    <h1>Dropdown Tests!</h1>
+</header>
+
+
+<footer>
+    <p>This assignment called for two different dropdown menus with two different event handlers.</p>
+    <br><br>
+    <p>OnChange Event Handler</p>
+    <select name="onchange" id="onchange">
+        <option value="https://www.youtube.com/">YouTube</option>
+        <option value="https://www.google.com/">Google</option>
+        <option value="https://www.yahoo.com/">Yahoo</option>
+    </select>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>OnClick Event Handler</p>
+    <select name="onclick" id="onclick">
+        <option value="https://www.youtube.com/">YouTube</option>
+        <option value="https://www.google.com/">Google</option>
+        <option value="https://www.yahoo.com/">Yahoo</option>
+    </select>
+    <br>
+    <button id="go">GO</button>
+</footer>
+<script>
+    var onchange = document.getElementById('onchange');
+    onchange.addEventListener("change", function(event){
+        console.log(event);
+        var url = event.target.value;
+        window.open(url, "_blank");
+    })
+    
+    var onclick = document.getElementById('onclick');
+    var button = document.getElementById('go');
+    button.addEventListener("click", function(event){
+        console.log(event);
+        var url = onclick.value;
+        window.open(url, "_blank");
+    })
+</script>
+</body>
+
+</html>

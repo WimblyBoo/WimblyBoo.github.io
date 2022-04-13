@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="5th Homework Assignment">
+<title>Homework 5.3 - State Data</title>
+<link rel="stylesheet" href="stylesheet1.css">
+<link rel="stylesheet" href="formtest.css">
+<script>
+    var stateData = [["AL","Alabama","Montgomery","4,903,185"],["AK",'Alaska','Juneau','731,545'],['AZ','Arizona','Phoenix','7,278,717'],['AR','Arkansas','Little Rock','3,017,825'],['CA','California','Sacramento','39,512,223'],['CO','Colorado','Denver','5,758,736']]
+
+    function clearError() {
+        document.getElementById("errorstate").innerHTML = "";
+    }
+
+
+    function validate() {
+        
+        clearError();
+        document.getElementById("thanks").innerHTML = ""
+        document.getElementById("abbr").innerHTML = ""
+        document.getElementById("statename").innerHTML = ""
+        document.getElementById("capital").innerHTML = ""
+        document.getElementById("pop").innerHTML = ""
+        var state = document.forms["form1"].elements["state"].value.toLowerCase();
+        var error = true;
+        for (var i = 0; i < stateData.length; i++) {
+            var data = stateData[i];
+            var lowercaseState = data[1].toLowerCase();
+            var lowercaseAbbreve =  data[0].toLocaleLowerCase();
+            if (state==lowercaseState||state==lowercaseAbbreve) {
+                document.getElementById("thanks").innerHTML = "Thanks for your inquiry, here is the information you requested:"; 
+                document.getElementById("abbr").innerHTML = "State abbr = " + data[0];
+                document.getElementById("statename").innerHTML = "State Name = " + data[1];
+                document.getElementById("capital").innerHTML = "Capital = " + data[2];
+                document.getElementById("pop").innerHTML = "Population = " + data[3];
+                error = false;
+            }
+        }
+        
+        if (error==true) {
+            document.getElementById("errorstate").innerHTML = "The database does not have information about this state, we only have information about AL, AK, AZ, AR, CA, and CO.";
+        } 
+
+    }
+</script>
+</head>
+<body>
+
+<header>
+    <a href="hw1.html">Home</a>
+    <br>
+    <a href="hw5.html">Back to HW 5</a>
+    <h1>State Data!</h1>
+</header>
+
+<footer>
+    <p>This assignment called for state data to be provided when you typed in a state name or abbreviation. Try it out!</p>
+    <br><br>
+    <form name='form1'>
+        <p>Input State:</p>
+        <input type="text" name="state" id="state">
+        <p id="errorstate" class="error"></p>
+        <p></p>
+        <input type="button" value="validate" onclick="validate()">
+    </form>
+    <h2 id="thanks"></h2>
+    <h2 id="abbr"></h2>
+    <h2 id="statename"></h2>
+    <h2 id="capital"></h2>
+    <h2 id="pop"></h2>
+</footer>
+
+
+</body>
+
+</html>
