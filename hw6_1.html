@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="3rd Homework Assignment">
+<title>Homework 6.1 - Decimal Processing</title>
+<link rel="stylesheet" href="stylesheet1.css">
+<script src="reg.js"></script>
+</head>
+<body>
+
+<header>
+  <a href="hw1.html">Home</a>
+  <br>
+  <a href="hw6.html">Back to HW 6</a>
+  <h1>Decimal Processing!</h1>
+</header>
+
+
+<footer>
+  <p>This program allows you to input a number with at least 4 decimal places to be rounded in 5 different ways!</p>
+  <br> <br>
+  <form name="name">
+    <td><label for="name">Input Number With Decimals</label>:</td>
+    <td><input type="number" name="name" id="name" size="15"></td>
+    <td><p id="error" style="color:red;"></p></td>
+    <input type="button" onclick="test()" value="SUBMIT">
+    <input type="reset" value="RESET">
+  </form>
+  <br>
+  <br>
+  <p style="font-size:20px">Processed Numbers</p>
+
+  <table>
+    <tr>
+      <td>Round to Nearest Integer</td>
+      <td><input type="text" name="resultA" id="resultA" readonly></td>
+    </tr>
+    <tr>
+      <td>Squared and Rounded</td>
+      <td><input type="text" name="resultB" id="resultB" readonly></td>
+    </tr>
+    <tr>
+      <td>Nearest Tenth</td>
+      <td><input type="text" name="resultC" id="resultC" readonly></td>
+    </tr>
+    <tr>
+      <td>Nearest Hundredths</td>
+      <td><input type="text" name="resultD" id="resultD" readonly></td>
+    </tr>
+    <tr>
+      <td>Nearest Thousandths</td>
+      <td><input type="text" name="resultE" id="resultE" readonly></td>
+    </tr>
+  </table>
+</footer>
+
+</body>
+
+</html>
