@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Error</title>
+
+</head>
+<body>
+    <div style='margin:0 auto;'>
+        <p id="display" name="display"><strong></strong></p>
+        <input type='button' value='Close Window' onclick='window.close()'></input>
+    </div>
+    <script>
+        function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' ')); 
+        }
+    
+        var char = getParameterByName('char');
+        document.getElementById("display").innerHTML = "Your string does not contain " + char + " in it!";
+    </script>
+</body>
+</html>
