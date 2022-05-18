@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="5th Homework Assignment">
+<title>Homework 7.1 - Text Changer</title>
+<link rel="stylesheet" href="stylesheet1.css">
+<link rel="stylesheet" href="formtest.css">
+<script>
+
+</script>
+</head>
+<body>
+
+<header>
+    <a href="hw1.html">Home</a>
+    <br>
+    <a href="hw7.html">Back to HW 7</a>
+    <h1>Text Changer!</h1>
+</header>
+
+<footer>
+    <h1 id="changy">Click any of the options and adjust this text!</h1>
+    <br><br>
+    <form name='form1'>
+        <p>What font size would you like?</p>
+        <input onchange="big()" type="radio" value='big' name="size" id="big">
+        <label for="big">Big</label>
+        <p></p>
+        <input onchange="bigger()" type="radio" value='bigger' name="size" id="bigger">
+        <label for="bigger">Bigger</label>
+        <p></p>
+        <input onchange="myFunction()" type="radio" value="biggest" name="size" id="biggest">
+        <label for="biggest">Biggest</label>
+        <p>How would you like the text to change?</p>
+        <input onchange="myFunction()" type="checkbox" value="bold" name="style" id="bold">
+        <label for="bold">Bold</label>
+        <p></p>
+        <input onchange="myFunction()" type="checkbox" value="italics" name="style" id="italics">
+        <label for="italics">Italics</label>
+        <p></p>
+        <input onchange="myFunction()" type="checkbox" value="underline" name="style" id="underline">
+        <label for="underline">Underline</label>
+        <p>What color would you like the text to be?:</p>
+        <select onchange="myFunction()" name="color" id="color">
+            <option value="green">Green</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+        </select>
+    </form>
+    <h2 id="complete"></h2>
+    <script>
+        function myFunction() {
+
+        }
+
+        function big() {
+            document.getElementById("changy").className = "big";
+        }
+
+        function bigger() {
+            document.getElementById("changy").className = "bigger";
+        }
+
+    </script>
+</footer>
+
+
+
+
+</body>
+
+</html>

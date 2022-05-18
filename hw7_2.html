@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="5th Homework Assignment">
+<title>Homework 7.2 - Cookies</title>
+<link rel="stylesheet" href="stylesheet1.css">
+</head>
+<body onload="checkOldCookie()">
+
+<header>
+  <a href="hw1.html">Home</a>
+  <br>
+  <a href="hw7.html">Back to HW 7</a>
+  <h1>Cookies!</h1>
+</header>
+
+<footer>
+    <div id="form">
+        <form name="form1">   
+            <p>Input Name:</p>
+            <input type="text" name="name" id="name">
+            <input type="button" onclick="checkNewCookie()" value="SUBMIT">
+        </form>     
+    </div>
+    <div id="cookie">
+        <p id="getthisoverwith"></p>
+    </div>
+
+    <script>
+        var form = document.getElementById("form");
+        var cookie = document.getElementById("cookie");
+        cookie.style.display = "none";
+        form.style.display = "none";
+        function setCookie(cname, cvalue) {
+  document.cookie = cname + "=" + cvalue + ";";
+}
+
+function getCookie(cName) {
+  var name = cName + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkNewCookie() {
+  var user = getCookie("username");
+  if (user != "") {
+    document.getElementById("error").innerHTML = "You already have a cookie registered with us! To clear it, you can close the browser and reopen the page."
+  } else {
+    user = document.forms["form1"].elements["name"].value;
+    if (user != "" && user != null) {
+      setCookie("username", user);
+    }
+  }
+}
+
+function checkOldCookie() {
+    var user = getCookie("username");
+    if (user != "") {
+        cookie.style.display = "block";
+        var x = document.cookie;
+        var cookieArray = x.split("=");
+        document.getElementById("getthisoverwith").innerHTML = "Welcome back, " + cookieArray[1] + "!";
+    } else {
+        form.style.display = "block"
+    }
+}
+    </script>
+</footer>
+
+</body>
+
+</html>
